@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        input{
+            width: 98.5%;
+            height: 100px;
+            border-radius: 15px 15px 0 0;
+            font-size: 35px;
+            font-family: Arial, sans-serif;
+            text-align: right;
+        }
+        .number{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 20px;
+            background-color: grey;
+            border-radius: 0 0 15px 15px ;
+        }
+        button{
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display">
+        <div class="number">
+        <button onclick="numValue('9')">9</button>
+        <button onclick="numValue('8')">8</button>
+        <button onclick="numValue('7')">7</button>
+        <button onclick="numValue('/')">/</button>
+        <button onclick="numValue('6')">6</button>
+        <button onclick="numValue('5')">5</button>
+        <button onclick="numValue('4')">4</button>
+        <button onclick="numValue('*')">*</button>
+        <button onclick="numValue('3')">3</button>
+        <button onclick="numValue('2')">2</button>
+        <button onclick="numValue('1')">1</button>
+        <button onclick="numValue('-')">-</button>
+        <button onclick="clearDisplay()">AC</button>
+        <button onclick="numValue('0')">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="numValue('+')">+</button>
+        </div>
+    </div>
+    <script>
+        let display = document.querySelector(".display")
+
+        function numValue(input){
+            display.value += input;
+        }
+        function clearDisplay(){
+            display.value = "";
+        }
+        function calculate(){
+            display.value = eval(display.value);
+        }
+    </script>
+</body>
+</html>
